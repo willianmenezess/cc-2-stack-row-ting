@@ -19,3 +19,12 @@ class Queue(AbstractQueue):
         if index not in range(len(self.__data)):
             raise IndexError("Índice Inválido ou Inexistente")
         return self.__data[index]
+
+    def get_element(self, value):
+        for index, element in enumerate(self.__data):
+            if element == value:
+                return index
+        return None
+
+    def __str__(self):
+        return str(self.__data)
