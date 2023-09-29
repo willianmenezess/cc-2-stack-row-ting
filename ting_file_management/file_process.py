@@ -9,19 +9,26 @@ def process(path_file, instance):
     list_lines_txt = txt_importer(path_file)
     qty_lines = len(list_lines_txt)
 
-    dict_txt = {
-        "nome do arquivo": path_file,
-        "qtd_linhas": qty_lines,
-        "linhas _do_arquivo": list_lines_txt
+    new_enqueue = {
+        'nome_do_arquivo': path_file,
+        'linhas_do_arquivo': list_lines_txt,
+        'qtd_linhas': qty_lines
     }
 
-    if instance.get_element(dict_txt) is None:
-        instance.enqueue(dict_txt)
-        stdout.write(f"{dict_txt}\n")
+    # adicionando o dicionário na fila
+    if instance.get_element(new_enqueue) is None:
+        instance.enqueue(new_enqueue)
+        stdout.write(f"{instance}")
+    return None
 
 
 def remove(instance):
-    """Aqui irá sua implementação"""
+    if instance.is_empty():
+        return stdout.write('Não há elementos\n')
+    else:
+        fileDequeued = instance.dequeue()
+        return stdout.write(
+          f"Arquivo {fileDequeued['nome_do_arquivo']} removido com sucesso\n")
 
 
 def file_metadata(instance, position):
@@ -29,8 +36,6 @@ def file_metadata(instance, position):
 
 
 if __name__ == "__main__":
-    path_file = "teste.txt"
     instance = Queue()
-    # print(instance)  # antes de processar e colocar na fila
+    path_file = "statics/arquivo_teste.txt"
     process(path_file, instance)
-    print(instance)  # depois de processar e colocar na fila

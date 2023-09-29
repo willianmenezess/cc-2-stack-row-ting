@@ -15,5 +15,5 @@ def txt_importer(path_file):
 
 
 # if __name__ == "__main__":
-#     path_file = "test.txt"
+#     path_file = "statics/arquivo_teste.txt"
 #     print(txt_importer(path_file))

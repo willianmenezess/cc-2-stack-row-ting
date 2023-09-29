@@ -4,27 +4,30 @@ from ting_file_management.abstract_queue import AbstractQueue
 class Queue(AbstractQueue):
     """Implementação da ED Fila usando list"""
     def __init__(self):
-        self.__data = list()
+        self._data = list()
 
     def __len__(self):
-        return len(self.__data)
+        return len(self._data)
 
     def enqueue(self, value):
-        self.__data.append(value)
+        self._data.append(value)
 
     def dequeue(self):
-        return self.__data.pop(0)
+        return self._data.pop(0)
 
     def search(self, index):
-        if index not in range(len(self.__data)):
+        if index not in range(len(self._data)):
             raise IndexError("Índice Inválido ou Inexistente")
-        return self.__data[index]
+        return self._data[index]
 
     def get_element(self, value):
-        for index, element in enumerate(self.__data):
+        for index, element in enumerate(self._data):
             if element == value:
                 return index
         return None
 
     def __str__(self):
-        return str(self.__data)
+        return str(self._data)
+
+    def is_empty(self):
+        return len(self._data) == 0
