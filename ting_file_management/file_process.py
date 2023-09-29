@@ -8,18 +8,17 @@ def process(path_file, instance):
     dicionário que será armazenado dentro da Queue"""
     list_lines_txt = txt_importer(path_file)
     qty_lines = len(list_lines_txt)
-
     new_enqueue = {
         'nome_do_arquivo': path_file,
-        'linhas_do_arquivo': list_lines_txt,
-        'qtd_linhas': qty_lines
+        'qtd_linhas': qty_lines,
+        'linhas_do_arquivo': list_lines_txt
     }
+    if instance.get_element(new_enqueue):
+        return None
 
     # adicionando o dicionário na fila
-    if instance.get_element(new_enqueue) is None:
-        instance.enqueue(new_enqueue)
-        stdout.write(f"{instance}")
-    return None
+    instance.enqueue(new_enqueue)
+    stdout.write(f"{instance}")
 
 
 def remove(instance):
