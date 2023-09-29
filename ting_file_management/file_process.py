@@ -18,7 +18,7 @@ def process(path_file, instance):
 
     # adicionando o dicionário na fila
     instance.enqueue(new_enqueue)
-    stdout.write(f"{instance}")
+    stdout.write(f"{instance}\n")
 
 
 def remove(instance):
@@ -38,3 +38,4 @@ if __name__ == "__main__":
     instance = Queue()
     path_file = "statics/arquivo_teste.txt"
     process(path_file, instance)
+    remove(instance)
