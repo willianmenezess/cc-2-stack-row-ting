@@ -7,18 +7,16 @@ def process(path_file, instance):
     """Transforma o retorno da função txt_importer em um
     dicionário que será armazenado dentro da Queue"""
     list_lines_txt = txt_importer(path_file)
-    qty_lines = len(list_lines_txt)
     new_enqueue = {
-        'nome_do_arquivo': path_file,
-        'qtd_linhas': qty_lines,
-        'linhas_do_arquivo': list_lines_txt
+        "nome_do_arquivo": path_file,
+        "qtd_linhas": len(list_lines_txt),
+        "linhas_do_arquivo": list_lines_txt,
     }
     if instance.get_element(new_enqueue):
         return None
-
     # adicionando o dicionário na fila
     instance.enqueue(new_enqueue)
-    stdout.write(f"{instance._data}\n")
+    stdout.write(f"{new_enqueue}\n")
 
 
 def remove(instance):
