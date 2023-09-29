@@ -30,11 +30,9 @@ def remove(instance):
 
 def file_metadata(instance, position):
     try:
-        return print(
-            f"{instance.search(position)}"
-        )
+        return print(f"{instance.search(position)}")
     except IndexError:
-        return print("Posição inválida")
+        return print('Posição inválida')
 
 
 if __name__ == "__main__":
