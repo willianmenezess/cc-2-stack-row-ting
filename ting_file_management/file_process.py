@@ -18,7 +18,7 @@ def process(path_file, instance):
 
     # adicionando o dicionário na fila
     instance.enqueue(new_enqueue)
-    stdout.write(f"{instance}\n")
+    stdout.write(f"{instance._data}\n")
 
 
 def remove(instance):
@@ -31,11 +31,17 @@ def remove(instance):
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        stdout.write(
+            f"{instance.search(position)}\n"
+        )
+    except IndexError:
+        stdout.write("Posição inválida ou inexistente\n")
 
 
 if __name__ == "__main__":
     instance = Queue()
     path_file = "statics/arquivo_teste.txt"
     process(path_file, instance)
-    remove(instance)
+    # remove(instance)
+    file_metadata(instance, 0)
