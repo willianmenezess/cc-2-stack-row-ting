@@ -1,6 +1,6 @@
 # Projeto do TING (Trybe is not Google)!
 
-Segundo Projeto realizado no Módulo de Ciencia da Programação - Trybe. Neste projeto implementei um programa que simula um algoritmo de indexação de documentos similar ao do Google. Ele é capaz de identificar ocorrências de termos em arquivos _TXT_.
+Segundo Projeto realizado no Módulo de Ciencia da Computação - Trybe. Neste projeto implementei um programa que simula um algoritmo de indexação de documentos similar ao do Google. Ele é capaz de identificar ocorrências de termos em arquivos _TXT_.
   
 Para isso, o programa tem dois módulos:
 - **Módulo de gerenciamento de arquivos** que permite anexar arquivos de texto (formato _TXT_) e;
