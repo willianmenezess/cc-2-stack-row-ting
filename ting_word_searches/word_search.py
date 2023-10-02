@@ -1,4 +1,5 @@
 from queue import Queue
+
 # from ting_file_management.file_management import txt_importer
 from ting_file_management.file_process import process
 
@@ -9,21 +10,38 @@ def exists_word(word, instance):
     list_search_occurrences = []
     for dict in instance._data:
         occurrences = []
-        for index, line in enumerate(dict['linhas_do_arquivo']):
+        for index, line in enumerate(dict["linhas_do_arquivo"]):
             if word.lower() in line.lower():
                 occurrences.append({"linha": index + 1})
         if len(occurrences) > 0:
             new_dict = {
                 "palavra": word.lower(),
-                "arquivo": dict['nome_do_arquivo'],
-                "ocorrencias": occurrences
+                "arquivo": dict["nome_do_arquivo"],
+                "ocorrencias": occurrences,
             }
             list_search_occurrences.append(new_dict)
     return list_search_occurrences
 
 
 def search_by_word(word, instance):
-    """Aqui irá sua implementação"""
+    """Mesma implementação da função anterior, mas deverá incluir
+    na saída o conteúdo das linhas encontradas"""
+    list_search_occurrences = []
+    for dict in instance._data:
+        occurrences = []
+        for index, line in enumerate(dict["linhas_do_arquivo"]):
+            if word.lower() in line.lower():
+                occurrences.append(
+                    {"linha": index + 1, "conteudo": line}
+                )
+        if len(occurrences) > 0:
+            new_dict = {
+                "palavra": word.lower(),
+                "arquivo": dict["nome_do_arquivo"],
+                "ocorrencias": occurrences,
+            }
+            list_search_occurrences.append(new_dict)
+    return list_search_occurrences
 
 
 if __name__ == "main":
