@@ -4,8 +4,8 @@ from ting_file_management.queue import Queue
 
 class PriorityQueue(AbstractQueue):
     def __init__(self):
-        self.regular_priority = Queue()  # Fila normal
-        self.high_priority = Queue()  # Fila de prioridade
+        self.regular_priority = Queue()  # Fila de arquivos prioridade normal
+        self.high_priority = Queue()  # Fila de arquivos de alta prioridade
         self.priority_limit = 5
 
     def is_priority(self, value):
