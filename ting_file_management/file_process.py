@@ -1,5 +1,6 @@
 from ting_file_management.file_management import txt_importer
 from queue import Queue
+import sys
 
 
 def process(path_file, instance):
@@ -20,6 +21,7 @@ def process(path_file, instance):
 
 
 def remove(instance):
+    """Remove o primeiro elemento da fila"""
     if instance.is_empty():
         return print('Não há elementos')
     else:
@@ -29,10 +31,12 @@ def remove(instance):
 
 
 def file_metadata(instance, position):
+    """Retorna os metadados de um arquivo específico"""
     try:
-        return print(f"{instance.search(position)}")
+        metadata = instance.search(position)
+        sys.stdout.write(f'{metadata}')
     except IndexError:
-        return print('Posição inválida')
+        sys.stderr.write("Posição inválida\n")
 
 
 if __name__ == "__main__":
